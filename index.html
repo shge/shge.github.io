@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html class="has-navbar-fixed-top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,16 +11,38 @@
   gtag('config', 'UA-117094943-1');
 </script>
 <title>shge.github.io</title>
+<meta name="description" content="偏差値計算ツールなど">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<link rel="stylesheet" href="style.css?201804070024">
+<script src="script.js?201804070024"></script>
 </head>
+
+<nav class="navbar is-link is-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+        <h1 class="navbar-item is-large title">shge.github.io</h1>
+    </div>
+    <div id="nav" class="navbar-start"> <!-- Header --> </div>
+</nav>
 
 <section class="section">
   <div class="container">
     <h1 class="title">shge.github.io</h1>
+    <ul>
+      <li><a href="sscalc/">SSCalc - 偏差値計算</a>
   </div>
 </section>
+
+<footer class="footer">
+  <div class="columns is-flex-desktop">
+    <div class="column is-one-quarter" style="padding: 0 0.75rem"></div>
+    <div class="column is-one-quarter">© 2018 shge.github.io</div>
+    <div class="column is-one-quarter">
+      <a href="https://github.com/shge/sscalc/issues/new">バグの報告などはこちらから</a>
+    </div>
+  </div>
+</footer>
