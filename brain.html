@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Brain</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+
+.textarea {
+  height: 350px
+}
+p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+</style>
+
+
+<script>
+$(function() {
+$('#input').on('input', function() {
+
+
+  var input = $(this).val().split(/\n/).filter(v => v);
+
+  var result = '';
+
+  for (var i=1; i <= input.length; i+=12) {
+
+    var questions = '',
+        answers = '';
+
+    for (var k=0; k<12; k++) {
+      var line = input[i+k-1];
+      if (line !==undefined) {
+
+        var qa = line.split(/\t/).filter(v => v);
+        questions += 'Q' + (i+k) + '. ' + qa[0] + '\n';
+        answers += 'A' + (i+k) + '. ' + qa[1] + '\n';
+
+      } else {
+        questions += '\n';
+        answers += '\n';
+      }
+    }
+
+    result += questions + answers;
+
+  }
+
+  $('#output').val(result.replace(/\n+$/, ''));
+
+
+});
+
+document.getElementById('input').addEventListener('keydown', function (e) {
+  var elem, end, start, value;
+  if (e.keyCode === 9) {
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    elem = e.target;
+    start = elem.selectionStart;
+    end = elem.selectionEnd;
+    value = elem.value;
+    elem.value = "" + (value.substring(0, start)) + "\t" + (value.substring(end));
+    elem.selectionStart = elem.selectionEnd = start + 1;
+    return false;
+  }
+});
+
+});
+</script>
+
+
+<section class="section">
+  <div class="container">
+    <textarea id="input" class="textarea"></textarea>
+  </div>
+</section>
+<p>↓
+<section class="section">
+  <div class="container">
+    <textarea id="output" class="textarea"></textarea>
+  </div>
+</section>
